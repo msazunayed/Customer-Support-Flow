@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support Flow Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="5" cy="6" r="2.5"/>
+            <circle cx="19" cy="6" r="2.5"/>
+            <circle cx="12" cy="18" r="2.5"/>
+            <path d="M7.2 7.2 10.6 16.2M16.8 7.2 13.4 16.2M7.5 6h9"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Support Flow Studio</h1>
+          <p>Structured ticket processing</p>
+        </div>
+      </div>
+      <div id="engine-badge" class="status">
+        <span class="status-dot"></span>
+        <span class="status-text">Checking...</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container layout">
+    <section class="card form-card">
+      <h2>New support ticket</h2>
+      <p class="muted">Submit an issue and follow it through categorization, routing and resolution.</p>
+
+      <form id="ticket-form" novalidate>
+        <label>
+          <span>Customer name</span>
+          <input id="customer_name" type="text" maxlength="80" placeholder="e.g. Alex Johnson" />
+        </label>
+
+        <label>
+          <span>Issue description</span>
+          <textarea id="issue_description" rows="5" maxlength="2000" placeholder="Describe the problem..."></textarea>
+        </label>
+
+        <div class="samples">
+          <span class="label">Sample issues</span>
+          <div id="sample-list" class="sample-list"></div>
+        </div>
+
+        <button type="submit" id="submit-btn" class="primary">
+          <span class="btn-text">Run flow</span>
+          <span class="spinner"></span>
+        </button>
+        <p id="form-error" class="error hidden"></p>
+      </form>
+    </section>
+
+    <section class="card result-card">
+      <div id="empty-state" class="empty">
+        <div class="empty-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="16" rx="3"/>
+            <path d="M7 9h10M7 13h6"/>
+          </svg>
+        </div>
+        <h3>No ticket yet</h3>
+        <p class="muted">Run the flow to see the pipeline, category and resolution here.</p>
+      </div>
+
+      <div id="result" class="hidden fade-in">
+        <div class="result-head">
+          <div>
+            <span id="r-ticket" class="ticket-id"></span>
+            <h2 id="r-customer"></h2>
+          </div>
+          <span id="r-priority" class="pill"></span>
+        </div>
+
+        <div class="pipeline">
+          <div class="step"><span class="step-index">1</span><strong>Received</strong><small>Ticket intake</small></div>
+          <div class="step"><span class="step-index">2</span><strong>Categorized</strong><small>Intent detection</small></div>
+          <div class="step"><span class="step-index">3</span><strong>Routed</strong><small>Queue assignment</small></div>
+          <div class="step"><span class="step-index">4</span><strong>Resolved</strong><small>Final outcome</small></div>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-box">
+            <span class="label">Category</span>
+            <span id="r-category" class="pill"></span>
+          </div>
+          <div class="info-box">
+            <span class="label">Resolution</span>
+            <p id="r-resolution"></p>
+          </div>
+        </div>
+
+        <div class="info-box issue-box">
+          <span class="label">Issue</span>
+          <p id="r-issue"></p>
+        </div>
+
+        <div class="trace">
+          <h3>Flow trace</h3>
+          <ol id="r-history"></ol>
+        </div>
+
+        <div class="feedback">
+          <h3>Rate this resolution</h3>
+          <div id="stars" class="stars"></div>
+          <p id="feedback-msg" class="muted"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card wide">
+      <div class="section-head">
+        <div>
+          <h2>Recent tickets</h2>
+          <p class="muted">Select a ticket to review its details.</p>
+        </div>
+        <button id="refresh" class="ghost">Refresh</button>
+      </div>
+      <div id="tickets-list" class="tickets">
+        <p class="muted">No tickets processed yet.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
