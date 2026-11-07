@@ -1,10 +1,10 @@
 const $ = (selector) => document.querySelector(selector);
 
 const SAMPLES = [
-  { name: "Sj.Zahidul", issue: "Unable to access premium features after payment" },
-  { name: "Md.Ifran", issue: "I was charged twice for my monthly subscription this month" },
-  { name: "Aabid Hasan ", issue: "The app crashes every time I try to upload a PDF file" },
-  { name: "Sajib Khan", issue: "Please add dark mode and keyboard shortcuts to the dashboard" },
+  { name: "SJ. Zahidul", issue: "Unable to access premium features after payment" },
+  { name: "Md. Ifran", issue: "I was charged twice for my monthly subscription this month" },
+  { name: "Aabid hasan", issue: "The app crashes every time I try to upload a PDF file" },
+  { name: "Sajib khan", issue: "Please add dark mode and keyboard shortcuts to the dashboard" },
   { name: "Shakil Ahmed", issue: "I'm locked out of my account and the password reset email never arrives" },
 ];
 

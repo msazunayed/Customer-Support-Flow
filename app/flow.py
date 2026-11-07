@@ -1,3 +1,6 @@
+# Customer support flow built with CrewAI Flows.
+# Order: receive_ticket -> categorize_ticket -> route_by_category -> handler -> resolve_ticket
+# Uses an LLM on Groq when GROQ_API_KEY is set, otherwise a keyword classifier.
 import os
 import random
 import string
@@ -139,8 +142,8 @@ def run_ticket(customer_name: str, issue_description: str) -> dict:
 if __name__ == "__main__":
     # Command line demo: python -m app.flow
     result = run_ticket(
-        "Alex Johnson",
-        "Unable to access premium features after payment",
+        "Shakil Ahmed",
+        "I'm locked out of my account and the password reset email never arrives",
     )
     for key, value in result.items():
         print(f"{key}: {value}")
