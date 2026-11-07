@@ -125,8 +125,7 @@ Interactive API docs are available at http://127.0.0.1:8000/docs.
 - **LLM errors**: the app falls back to keyword categorization automatically and prints the error in the terminal. Check `GROQ_API_KEY` and `SUPPORT_MODEL` in `.env`, and restart uvicorn after editing it.
 - **Tickets disappear after a restart**: storage is in memory by design. Add a database if you need persistence.
 
-## Extending the flow
+## output
 
-To add a new category, add its name to `CATEGORIES` in `models.py`, add keywords in
-`CATEGORY_KEYWORDS` in `flow.py`, then add a `@listen("your_category")` handler and
-include it in the `or_(...)` on `resolve_ticket`.
+https://github.com/user-attachments/assets/007f149d-da1d-46cc-ad02-3ecb911677a2
+
